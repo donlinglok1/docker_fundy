@@ -6,9 +6,7 @@ $_YMD = date ( 'Y-m-d' );
 $_MYSQLHOST = 'fundydb.alllwork.com';
 $_MYSQLUSER = 'fundy';
 $_MYSQLPW = 'a254984517tu';
-$_MYDB = '';
-
-$_MYSQLCONNECTION = mysqli_connect ( $_MYSQLHOST, $_MYSQLUSER, $_MYSQLPW, $_MYDB );
+$_MYSQLCONNECTION = mysqli_connect ( $_MYSQLHOST, $_MYSQLUSER, $_MYSQLPW );
 
 if (! $_MYSQLCONNECTION) {
 	die ( mysqli_error () );

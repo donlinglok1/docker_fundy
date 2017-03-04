@@ -4,7 +4,7 @@ EXPOSE 80
 
 ADD ./html /var/www/html
 
-RUN docker-php-ext-install mysqli
-RUN docker-php-ext-install pdo
+#RUN docker-php-ext-install mysqli
+#RUN docker-php-ext-install pdo
 
 #CMD ["/bin/bash"]
