@@ -1,0 +1,17 @@
+version: "2"
+services:
+  api:
+    build: ./system/api/
+    expose:
+      - 3000
+      - 3306
+    network_mode: host
+  web:
+    build: ./system/web/
+    expose:
+      - 80
+      - 3306
+    network_mode: host
+#  cron:
+#    build: ./system/cron/
+#    network_mode: host
