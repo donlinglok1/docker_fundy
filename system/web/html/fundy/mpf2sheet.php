@@ -85,7 +85,7 @@ if ($client->getAuth ()->isAccessTokenExpired ()) {
 }
 $_SESSION ['service_token'] = $client->getAccessToken ();
 
-mysqli_query ( 'USE fundy' );
+mysql_query ( 'USE fundy' );
 
 $SID = '1HlAK-2ICLM2uoBR9xkC5hGWplxeBQ1FyflPXeNowO6w';
 

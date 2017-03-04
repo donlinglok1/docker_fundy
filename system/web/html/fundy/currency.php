@@ -104,8 +104,8 @@ if (count ( $values ) == 0) {
 	for($i = 0; $i < count ( $values ); $i ++) {
 		$row = $values [$i];
 		if ($row [1] == "HKD") {
-			mysqli_query ( 'USE fundy' );
-			mysqli_query ( "
+			mysql_query ( 'USE fundy' );
+			mysql_query ( "
 				CREATE TABLE IF NOT EXISTS `currency_" . $row [1] . "_" . date ( "Y_m_d" ) . "` (
 				  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 				  `create_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -148,8 +148,8 @@ if (count ( $values ) == 0) {
 					
 					echo '<br>' . sql_insert_id ( substr ( $cmd, 0, - 1 ) );
 					
-					echo "mysqli_errno: ";
-					echo mysqli_errno ( $_MYSQLCONNECTION ) . mysqli_error ( $_MYSQLCONNECTION ) . "\n";
+					echo "mysql_errno: ";
+					echo mysql_errno ( $_MYSQLCONNECTION ) . mysql_error ( $_MYSQLCONNECTION ) . "\n";
 				}
 			}
 		}

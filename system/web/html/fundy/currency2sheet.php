@@ -88,7 +88,7 @@ $_SESSION ['service_token'] = $client->getAccessToken ();
 // for cmd test
 $SID = '1IeflNPNSikGe7xq4T4mvkiK_jUOxjDEymolXzU8Iqn4';
 
-mysqli_query ( 'USE fundy' );
+mysql_query ( 'USE fundy' );
 $tablearray = sql_select_array ( "
 		SELECT company,
 		ticker_google AS 'ticker'

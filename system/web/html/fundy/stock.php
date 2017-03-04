@@ -92,14 +92,14 @@ if (isset ( $argv [1] )) {
 
 $symbol = $SYMBOL;
 
-mysqli_query ( 'USE fundy' );
+mysql_query ( 'USE fundy' );
 
 $exchangeObj = sql_select_obj ( "SELECT google_sheet_id 
 								FROM fundy._stockexchanges
 								WHERE symbol_google = '" . $symbol . "'" );
 
 if (isset ( $exchangeObj ['google_sheet_id'] )) {
-	mysqli_query ( "
+	mysql_query ( "
 				CREATE TABLE IF NOT EXISTS fundy.`stock_" . $symbol . "_" . date ( "Y_m_d" ) . "` (
 				  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 				  `create_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -186,8 +186,8 @@ if (isset ( $exchangeObj ['google_sheet_id'] )) {
 				
 				echo '<br>' . sql_insert_id ( substr ( $cmd, 0, - 1 ) );
 				
-				echo "mysqli_errno: ";
-				echo mysqli_errno ( $_MYSQLCONNECTION ) . mysqli_error ( $_MYSQLCONNECTION ) . "\n";
+				echo "mysql_errno: ";
+				echo mysql_errno ( $_MYSQLCONNECTION ) . mysql_error ( $_MYSQLCONNECTION ) . "\n";
 			}
 		}
 	}

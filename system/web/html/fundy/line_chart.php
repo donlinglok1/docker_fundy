@@ -15,7 +15,7 @@ echo "var json = JSON.parse('" . json_encode ( sql_select_array ( "
 		WHERE ticker_google = 'HKG:0001'
 		GROUP BY tradetime
 		" ), true ) . "');";
-// echo mysqli_errno ( $_MYSQLCONNECTION ) . ": " . mysqli_error ( $_MYSQLCONNECTION ) . "\n";
+// echo mysql_errno ( $_MYSQLCONNECTION ) . ": " . mysql_error ( $_MYSQLCONNECTION ) . "\n";
 echo "
  
     var jss = [];

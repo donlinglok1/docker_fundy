@@ -107,8 +107,8 @@ if (count ( json_decode ( $_GET ['array'], true ) ) > 0) {
 
 $symbol = $array [0] ['SYMBOL'];
 
-mysqli_query ( 'USE fundy' );
-mysqli_query ( "
+mysql_query ( 'USE fundy' );
+mysql_query ( "
 				CREATE TABLE IF NOT EXISTS fundy.`stock_" . $symbol . "` (
 				  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 				  `create_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,

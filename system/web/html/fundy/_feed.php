@@ -8,8 +8,8 @@ if (isset ( $argv [1] )) {
 	$url = 'http://www.ftchinese.com/rss/feed';
 }
 
-mysqli_query ( 'USE fundy' );
-mysqli_query ( "
+mysql_query ( 'USE fundy' );
+mysql_query ( "
 				CREATE TABLE IF NOT EXISTS  `_feed` (
 				  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 				  `create_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -43,8 +43,8 @@ try {
 		if (count ( sql_select_array ( "
 				SELECT ID
 				FROM `fundy`.`_feed`
-				WHERE link = '" . mysqli_real_escape_string ( $item ['link'] ) . "' 
-				AND date = '" . mysqli_real_escape_string ( $item ['pubDate'] ) . "' 
+				WHERE link = '" . mysql_real_escape_string ( $item ['link'] ) . "' 
+				AND date = '" . mysql_real_escape_string ( $item ['pubDate'] ) . "' 
 				LIMIT 1
 				" ) ) < 1) {
 			
@@ -52,15 +52,15 @@ try {
 			echo ' ' . sql_insert_id ( "
 				INSERT INTO `fundy`.`_feed`
 					(`title`, `description`, `link`, `date`)
-				VALUES ('" . mysqli_real_escape_string ( $txt ) . "',
-				'" . mysqli_real_escape_string ( $item ['description'] ) . "',
-				'" . mysqli_real_escape_string ( $item ['link'] ) . "',
-				'" . mysqli_real_escape_string ( $item ['pubDate'] ) . "');
+				VALUES ('" . mysql_real_escape_string ( $txt ) . "',
+				'" . mysql_real_escape_string ( $item ['description'] ) . "',
+				'" . mysql_real_escape_string ( $item ['link'] ) . "',
+				'" . mysql_real_escape_string ( $item ['pubDate'] ) . "');
 	 		 " );
 		}
 		
-		echo "mysqli_errno: ";
-		echo mysqli_errno ( $_MYSQLCONNECTION ) . mysqli_error ( $_MYSQLCONNECTION ) . "\n";
+		echo "mysql_errno: ";
+		echo mysql_errno ( $_MYSQLCONNECTION ) . mysql_error ( $_MYSQLCONNECTION ) . "\n";
 	}
 } catch ( Exception $e ) {
 }

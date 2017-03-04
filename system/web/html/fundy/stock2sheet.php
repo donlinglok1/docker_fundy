@@ -85,7 +85,7 @@ if ($client->getAuth ()->isAccessTokenExpired ()) {
 }
 $_SESSION ['service_token'] = $client->getAccessToken ();
 
-mysqli_query ( 'USE fundy' );
+mysql_query ( 'USE fundy' );
 $exchangesArray = sql_select_array ( "
 		SELECT symbol_google, google_sheet_id
 		FROM fundy._stockexchanges
