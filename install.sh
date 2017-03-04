@@ -18,6 +18,3 @@ else
 fi
 
 sudo service docker start
-
-#sudo cp -r var/www/html /var/www/html
-#sudo cp -r mcdr /var/www/html

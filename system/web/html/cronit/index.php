@@ -28,8 +28,8 @@ foreach ( $sqlResult as $row ) {
 		WHERE id='" . $row ['id'] . "';
 		" );
 	
-	echo "mysql_errno: ";
-	echo mysql_errno ( $_MYSQLCONNECTION ) . mysql_error ( $_MYSQLCONNECTION ) . "\n";
+	echo "mysqli_errno: ";
+	echo mysqli_errno ( $_MYSQLCONNECTION ) . mysqli_error ( $_MYSQLCONNECTION ) . "\n";
 	
 	if (substr ( $row ['link'], 0, 4 ) === "http") {
 		echo $row ['link'];

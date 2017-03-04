@@ -8,8 +8,8 @@ include (dirname ( __FILE__ ) . '/simple_html_dom.php');
 
 $stock_exchanges_symbol = 'MUTF_HK';
 
-mysql_query ( 'USE fundy' );
-mysql_query ( "
+mysqli_query ( 'USE fundy' );
+mysqli_query ( "
 				CREATE TABLE 
 				IF NOT EXISTS fundy.`_mpf` (
 				  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -21,7 +21,7 @@ mysql_query ( "
 				  UNIQUE KEY `ticker_google_UNIQUE` (`ticker_google`)
 				) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=utf8;
 				" );
-echo mysql_errno ( $_MYSQLCONNECTION ) . ": " . mysql_error ( $_MYSQLCONNECTION ) . "\n";
+echo mysqli_errno ( $_MYSQLCONNECTION ) . ": " . mysqli_error ( $_MYSQLCONNECTION ) . "\n";
 
 $last = 0;
 $size = 500;
@@ -69,20 +69,20 @@ for($i = 0; $i < 100; $i ++) {
 			if (count ( sql_select_array ( "
 				SELECT ID
 				FROM `fundy`.`_mpf`
-				WHERE ticker_google = '" . mysql_real_escape_string ( $ticker_google ) . "'
+				WHERE ticker_google = '" . mysqli_real_escape_string ( $ticker_google ) . "'
 				LIMIT 1
 				" ) ) < 1) {
 				
 				echo ' ' . sql_insert_id ( "
 				INSERT INTO `fundy`.`_mpf`
 					(`company`, `ticker_google`)
-				VALUES ('" . mysql_real_escape_string ( $company ) . "',
-					'" . mysql_real_escape_string ( $stock_exchanges_symbol_google ) . ":" . mysql_real_escape_string ( $ticker_google ) . "');
+				VALUES ('" . mysqli_real_escape_string ( $company ) . "',
+					'" . mysqli_real_escape_string ( $stock_exchanges_symbol_google ) . ":" . mysqli_real_escape_string ( $ticker_google ) . "');
 	 		 " );
 			}
 			
-			echo "mysql_errno: ";
-			echo mysql_errno ( $_MYSQLCONNECTION ) . mysql_error ( $_MYSQLCONNECTION ) . "\n";
+			echo "mysqli_errno: ";
+			echo mysqli_errno ( $_MYSQLCONNECTION ) . mysqli_error ( $_MYSQLCONNECTION ) . "\n";
 		}
 	}
 	$last = $last + $size;

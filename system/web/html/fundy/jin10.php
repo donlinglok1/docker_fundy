@@ -2,8 +2,8 @@
 include (dirname ( __FILE__ ) . '/../.ba&4AhAF_mysql.php');
 include ('simple_html_dom.php');
 
-mysql_query ( 'USE fundy' );
-mysql_query ( "
+mysqli_query ( 'USE fundy' );
+mysqli_query ( "
 				CREATE TABLE IF NOT EXISTS  `_feed` (
 				  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 				  `create_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -69,8 +69,8 @@ foreach ( $html->find ( 'div[id=newslist] div table tbody' ) as $element ) {
 		if (count ( sql_select_array ( "
 				SELECT ID
 				FROM `fundy`.`_feed`
-				WHERE title = '" . mysql_real_escape_string ( $title ) . "'
-				AND date = '" . mysql_real_escape_string ( $date ) . "'
+				WHERE title = '" . mysqli_real_escape_string ( $title ) . "'
+				AND date = '" . mysqli_real_escape_string ( $date ) . "'
 				LIMIT 1
 				" ) ) < 1) {
 							
@@ -78,15 +78,15 @@ foreach ( $html->find ( 'div[id=newslist] div table tbody' ) as $element ) {
 						echo ' ' .  sql_insert_id ( "
 				INSERT INTO `fundy`.`_feed`
 					(`title`, `description`, `link`, `date`)
-				VALUES ('" . mysql_real_escape_string ( $title ) . "',
-				'" . mysql_real_escape_string ( '' ) . "',
-				'" . mysql_real_escape_string ( '' ) . "',
-				'" . mysql_real_escape_string ( $date ) . "');
+				VALUES ('" . mysqli_real_escape_string ( $title ) . "',
+				'" . mysqli_real_escape_string ( '' ) . "',
+				'" . mysqli_real_escape_string ( '' ) . "',
+				'" . mysqli_real_escape_string ( $date ) . "');
 	 		 " );
 		}
 		
-			echo "mysql_errno: ";
-			echo mysql_errno ( $_MYSQLCONNECTION ) . mysql_error ( $_MYSQLCONNECTION ) . "\n";
+			echo "mysqli_errno: ";
+			echo mysqli_errno ( $_MYSQLCONNECTION ) . mysqli_error ( $_MYSQLCONNECTION ) . "\n";
 		}			
 }
 

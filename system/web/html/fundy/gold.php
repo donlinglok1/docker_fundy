@@ -2,8 +2,8 @@
 include (dirname ( __FILE__ ) . '/../.ba&4AhAF_mysql.php');
 include ('simple_html_dom.php');
 
-mysql_query ( 'USE fundy' );
-mysql_query ( "
+mysqli_query ( 'USE fundy' );
+mysqli_query ( "
 				CREATE TABLE IF NOT EXISTS  `gold_" . date ( "Y_m_d" ) . "` (
 				  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 				  `create_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -28,8 +28,8 @@ foreach ( $html->find ( 'div[id=gold_spot_3] b span' ) as $element ) {
 			VALUES ('" . ($element->innertext) . "');
 		" );
 	
-	echo "mysql_errno: ";
-	echo mysql_errno ( $_MYSQLCONNECTION ) . mysql_error ( $_MYSQLCONNECTION ) . "\n";
+	echo "mysqli_errno: ";
+	echo mysqli_errno ( $_MYSQLCONNECTION ) . mysqli_error ( $_MYSQLCONNECTION ) . "\n";
 }
 
 ?>

@@ -82,7 +82,7 @@ if ($client->getAuth ()->isAccessTokenExpired ()) {
 }
 $_SESSION ['service_token'] = $client->getAccessToken ();
 
-mysql_query ( 'USE fundy' );
+mysqli_query ( 'USE fundy' );
 
 $tablearray = sql_select_array ( "SELECT 
 		ticker_google AS 'ticker'
@@ -156,7 +156,7 @@ for($i = 0; $i < count ( $tablearray ); $i ++) {
 			
 			$cmd = $cmd . "" . substr ( $iquery, 1 ) . "),";
 			
-			mysql_query ( "
+			mysqli_query ( "
 				CREATE TABLE `mpf_" . $date . "` (
 				  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 				  `create_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -185,8 +185,8 @@ for($i = 0; $i < count ( $tablearray ); $i ++) {
 				
 				echo '<br>' . sql_insert_id ( substr ( $cmd, 0, - 1 ) );
 				
-				echo "mysql_errno: ";
-				echo mysql_errno ( $_MYSQLCONNECTION ) . mysql_error ( $_MYSQLCONNECTION ) . "\n";
+				echo "mysqli_errno: ";
+				echo mysqli_errno ( $_MYSQLCONNECTION ) . mysqli_error ( $_MYSQLCONNECTION ) . "\n";
 			} else {
 				echo "SELECT ID
 				FROM `fundy`.`mpf_" . $date . "`
