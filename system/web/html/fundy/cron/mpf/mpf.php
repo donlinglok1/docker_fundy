@@ -82,7 +82,7 @@ if ($client->getAuth ()->isAccessTokenExpired ()) {
 }
 $_SESSION ['service_token'] = $client->getAccessToken ();
 
-mysql_query ( 'USE mpf' );
+mysql_query ( 'USE mpf;' );
 mysql_query ( "
 				CREATE TABLE IF NOT EXISTS mpf.`" . date ( "Y_m_d" ) . "` (
 				  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,

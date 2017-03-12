@@ -1,10 +1,9 @@
 <?php
-include (dirname ( __FILE__ ) . '/../.ba&4AhAF_mysql.php');
-include ('simple_html_dom.php');
+include (dirname ( __FILE__ ) . '/../../.ba&4AhAF_mysql.php');
+include ('../../simple_html_dom.php');
 
-mysql_query ( 'USE gold' );
 mysql_query ( "
-				CREATE TABLE IF NOT EXISTS  `" . date ( "Y_m_d" ) . "` (
+				CREATE TABLE IF NOT EXISTS  gold.`" . date ( "Y_m_d" ) . "` (
 				  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 				  `create_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 				  `price` varchar(45) NOT NULL,
