@@ -1,6 +1,6 @@
 <?php
-include (dirname ( __FILE__ ) . '/../../.ba&4AhAF_mysql.php');
-include ('../../simple_html_dom.php');
+include (dirname ( __FILE__ ) . '/../../../.ba&4AhAF_mysql.php');
+include ('../../../simple_html_dom.php');
 
 mysql_query ( "
 				CREATE TABLE IF NOT EXISTS  gold.`" . date ( "Y_m_d" ) . "` (

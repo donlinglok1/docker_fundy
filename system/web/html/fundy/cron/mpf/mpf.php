@@ -1,8 +1,8 @@
 <?php
 $time_start = microtime ( true );
 
-ini_set ( 'session.save_path', dirname ( __FILE__ ) . '/../session' );
-include (dirname ( __FILE__ ) . '/../../.ba&4AhAF_mysql.php');
+ini_set ( 'session.save_path', dirname ( __FILE__ ) . '/../../session' );
+include (dirname ( __FILE__ ) . '/../../../.ba&4AhAF_mysql.php');
 /*
  * Copyright 2013 Google Inc.
  *
@@ -19,7 +19,7 @@ include (dirname ( __FILE__ ) . '/../../.ba&4AhAF_mysql.php');
  * limitations under the License.
  */
 session_start ();
-include_once "../google-api-php-client/examples/templates/base.php";
+include_once (dirname ( __FILE__ ) . "../../google-api-php-client/examples/templates/base.php");
 
 /**
  * **********************************************
@@ -27,7 +27,7 @@ include_once "../google-api-php-client/examples/templates/base.php";
  * account.
  * **********************************************
  */
-require_once realpath ( dirname ( __FILE__ ) . '/../google-api-php-client/src/Google/autoload.php' );
+require_once realpath ( dirname ( __FILE__ ) . '/../../google-api-php-client/src/Google/autoload.php' );
 
 /**
  * **********************************************
@@ -47,7 +47,7 @@ require_once realpath ( dirname ( __FILE__ ) . '/../google-api-php-client/src/Go
  */
 $client_id = '641681166632-bla6hfsagifsp0m67ej8ndv4cbuf6csd.apps.googleusercontent.com'; // Client ID
 $service_account_name = 'fundy-1378@appspot.gserviceaccount.com'; // Email Address
-$key_file_location = dirname ( __FILE__ ) . '/../Fundy-5f1e8fcca213.p12'; // key.p12
+$key_file_location = dirname ( __FILE__ ) . '/../../Fundy-5f1e8fcca213.p12'; // key.p12
                                                                        // IhWFDrTbjBdbCb0GNwlN0Iyw
                                                                        // echo pageHeader ( "Service Account Access" );
 if (strpos ( $client_id, "googleusercontent" ) == false || ! strlen ( $service_account_name ) || ! strlen ( $key_file_location )) {

@@ -19,7 +19,7 @@ include (dirname ( __FILE__ ) . '/../../../.ba&4AhAF_mysql.php');
  * limitations under the License.
  */
 session_start ();
-include_once "../../google-api-php-client/examples/templates/base.php";
+include_once (dirname ( __FILE__ ) . "../../google-api-php-client/examples/templates/base.php");
 
 /**
  * **********************************************
