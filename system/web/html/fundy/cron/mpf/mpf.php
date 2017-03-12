@@ -157,11 +157,13 @@ if (count ( $values ) == 0) {
 				SELECT ID
 				FROM `mpf`.'" . date ( "Y_m_d" ) . "'
 				WHERE ticker_google = '" . $ticker . "'
-				AND date = " . $tradetime . "
+				AND date = '" . $tradetime . "'
 				LIMIT 1
 				" ) ) < 1) {
 			
 			echo $cmd;
+			
+			echo '<br>' . sql_insert_id ( substr ( $cmd, 0, - 1 ) );
 			
 			echo "mysql_errno: ";
 			echo mysql_errno ( $_MYSQLCONNECTION ) . mysql_error ( $_MYSQLCONNECTION ) . "\n";
