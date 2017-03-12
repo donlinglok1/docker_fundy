@@ -155,7 +155,7 @@ if (count ( $values ) == 0) {
 		
 		if (count ( sql_select_array ( "
 				SELECT ID
-				FROM `mpf`." . date ( "Y_m_d" ) . "
+				FROM `mpf`.'" . date ( "Y_m_d" ) . "'
 				WHERE ticker_google = '" . $ticker . "'
 				AND date = " . $tradetime . "
 				LIMIT 1
