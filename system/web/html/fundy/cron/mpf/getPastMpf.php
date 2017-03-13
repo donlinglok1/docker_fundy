@@ -111,6 +111,8 @@ for($i = 0; $i < count ( $tablearray ); $i ++) {
 	
 	$response2 = $service->spreadsheets_values->batchUpdate ( $spreadsheetId, $valueRange );
 	
+	sleep(3);
+	
 	$range = 'sheet1!A7:ZZ9999';
 	$response = $service->spreadsheets_values->get ( $spreadsheetId, $range );
 	$values = $response->getValues ();
