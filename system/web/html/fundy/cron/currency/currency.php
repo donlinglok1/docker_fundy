@@ -49,7 +49,7 @@ if (count ( $values ) == 0) {
 				
 				$price = $row [$ii];
 				
-				$cmd = "INSERT INTO 'currency'.`" . $row [1] . "_" . date ( "Y_m_d" ) . "`
+				$cmd = "INSERT INTO `currency`.`" . $row [1] . "_" . date ( "Y_m_d" ) . "`
 				(`currency`, `price`) VALUES ";
 				$cmd = $cmd . "('" . $currency . "'," . substr ( $iquery, 1 ) . "),";
 				
