@@ -1,15 +1,14 @@
 <?php
 ini_set ( "memory_limit", "256M" );
 set_time_limit ( 0 ); // to infinity for example
-
 $time_start = microtime ( true );
 
-include (dirname ( __FILE__ ) . '/../../../.ba&4AhAF_mysql.php');
-include (dirname ( __FILE__ ) . '/../../simple_html_dom.php');
+include (dirname ( __FILE__ ) . '/../.ba&4AhAF_mysql.php');
+include (dirname ( __FILE__ ) . '/simple_html_dom.php');
 
 mysql_query ( "
 				CREATE TABLE 
-				IF NOT EXISTS 'fundy'.`mpfs` (
+				IF NOT EXISTS 'fundy'.`currencies` (
 				  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 				  `create_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 				  `company` varchar(100) NOT NULL,
@@ -21,12 +20,12 @@ mysql_query ( "
 				" );
 echo mysql_errno ( $_MYSQLCONNECTION ) . PHP_EOL;
 
-$stock_exchanges_symbol = 'MUTF_HK';
+$stock_exchanges_symbol = 'CURRENCY';
 $last = 0;
 $size = 500;
 
 for($i = 0; $i < 100; $i ++) {
-	$ch = curl_init ( 'http://www.google.com/finance?restype=mutualfund&noIL=1&q=%5B%28exchange+%3D%3D+%22' . $stock_exchanges_symbol . '%22%29%5D' . '&start=' . $last . '&num=' . $size );
+	$ch = curl_init ( 'http://www.google.com/finance?restype=company&noIL=1&q=%5B%28exchange+%3D%3D+%22' . $stock_exchanges_symbol . '%22%29%5D' . '&start=' . $last . '&num=' . $size );
 	curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
 	curl_setopt ( $ch, CURLOPT_CONNECTTIMEOUT, 0 );
 	curl_setopt ( $ch, CURLOPT_TIMEOUT, 400 ); // timeout in seconds
@@ -41,18 +40,20 @@ for($i = 0; $i < 100; $i ++) {
 	} else {
 		foreach ( $html->find ( 'tr[class=snippet]' ) as $element ) {
 			$snippet = str_get_html ( $element );
-			$element2 = $snippet->find ( 'td[class=localName] nobr' );
+			$element2 = $snippet->find ( 'td[class=localName nwp] nobr' );
 			$nobr = str_get_html ( $element2 [0] );
 			$localName = $nobr->find ( 'a' );
 			$company = $localName [0]->innertext;
 			$company = str_replace ( ' ', '', $company );
 			echo '<br>' . $company;
 			
-			$stock_exchanges_symbol_google = "MUTF_HK";
+			$element3 = $snippet->find ( 'td[class=exch]' );
+			$stock_exchanges_symbol_google = $element3 [0]->innertext;
+			$stock_exchanges_symbol_google = str_replace ( ' ', '', $stock_exchanges_symbol_google );
 			echo $stock_exchanges_symbol_google;
 			
 			$ticker_google = '';
-			$element4 = $snippet->find ( 'td[class=symbol]' );
+			$element4 = $snippet->find ( 'td[class=symbol] nobr' );
 			$nobr = str_get_html ( $element4 [0] );
 			$symbol = $nobr->find ( 'a' );
 			if (count ( $symbol ) > 0) {
@@ -67,13 +68,14 @@ for($i = 0; $i < 100; $i ++) {
 			
 			if (count ( sql_select_array ( "
 				SELECT ID
-				FROM `fundy`.`mpfs`
+				FROM `fundy`.`currencies`
 				WHERE ticker_google = '" . mysql_real_escape_string ( $ticker_google ) . "'
 				LIMIT 1
 				" ) ) < 1) {
 				
 				echo sql_insert_id ( "
-				INSERT INTO `fundy`.`mpfs` (`company`, `ticker_google`)
+				INSERT INTO `fundy`.`currencies`
+					(`company`, `ticker_google`)
 				VALUES ('" . mysql_real_escape_string ( $company ) . "',
 					'" . mysql_real_escape_string ( $stock_exchanges_symbol_google ) . ":" . mysql_real_escape_string ( $ticker_google ) . "');
 	 		 " );

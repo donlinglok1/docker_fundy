@@ -1,18 +1,19 @@
 <?php
+date_default_timezone_set ( "Asia/Taipei" );
 $time_start = microtime ( true );
 include (dirname ( __FILE__ ) . '/../../../.ba&4AhAF_mysql.php');
 include (dirname ( __FILE__ ) . '/../../google/googleDocToken.php');
 
 $array = sql_select_array ( "
 		SELECT ticker_google AS 'ticker'
-		FROM 'fundy'.'mpfs'
+		FROM 'fundy'.'currencies'
 		" );
 
 foreach ( $array as $item ) {
 	loop ( $item );
 }
 function loop($item) {
-	$ticker = $item ["ticker"];
+	$ticker = $item ["ticker"] . "HKD";
 	echo $ticker;
 
 	$spreadsheetId = '1G3a5Q8YuoUy5OuttriaXn6uCQ673JmFrY_r8h2ZUQbQ';
@@ -32,8 +33,6 @@ function loop($item) {
 	
 	$service->spreadsheets_values->batchUpdate ( $spreadsheetId, $valueRange );
 	
-	sleep ( 3 );
-	
 	$range = 'sheet1!A7:ZZ9999';
 	$response = $service->spreadsheets_values->get ( $spreadsheetId, $range );
 	$values = $response->getValues ();
@@ -44,6 +43,7 @@ function loop($item) {
 		// echo json_encode ( $values, true );
 		
 		foreach ( $values as $row ) {
+			
 			insertTo ( $ticker, $row );
 		}
 	}
@@ -73,13 +73,14 @@ function insertTo($ticker, $row) {
 		$iquery = $iquery . "," . $col;
 	}
 	
-	$cmd = "INSERT INTO `mpf`.`" . $date . "`
-			(`ticker_google`, `date`, `priceopen`,
-			`high`, `low`, `price`,`volume`) VALUES ";
+	$cmd = "INSERT INTO `currency`.`" . $date . "`
+				(`ticker_google`, `date`, `priceopen`,
+				`high`, `low`, `price`,`volume`) VALUES 
+	 		 ";
 	$cmd = $cmd . "('" . $ticker . "'," . substr ( $iquery, 1 ) . "),";
 	
 	mysql_query ( "
-				CREATE TABLE 'mpf'.`" . $date . "` (
+				CREATE TABLE 'currency'.`" . $date . "` (
 				  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 				  `create_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 				  `ticker_google` varchar(45) NOT NULL,
@@ -97,7 +98,7 @@ function insertTo($ticker, $row) {
 	
 	if (count ( sql_select_array ( "
 				SELECT ID
-				FROM `mpf`.`" . $date . "`
+				FROM `currency`.`" . $date . "`
 				WHERE ticker_google = '" . $ticker . "'
 				AND date = '" . $tradetime . "'
 				LIMIT 1
