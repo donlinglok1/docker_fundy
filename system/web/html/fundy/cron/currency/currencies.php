@@ -3,8 +3,8 @@ ini_set ( "memory_limit", "256M" );
 set_time_limit ( 0 ); // to infinity for example
 $time_start = microtime ( true );
 
-include (dirname ( __FILE__ ) . '/../.ba&4AhAF_mysql.php');
-include (dirname ( __FILE__ ) . '/simple_html_dom.php');
+include (dirname ( __FILE__ ) . '/../../../.ba&4AhAF_mysql.php');
+include (dirname ( __FILE__ ) . '/../../simple_html_dom.php');
 
 mysql_query ( "
 				CREATE TABLE 

@@ -1,5 +1,4 @@
 <?php
-date_default_timezone_set ( "Asia/Taipei" );
 $time_start = microtime ( true );
 include (dirname ( __FILE__ ) . '/../../../.ba&4AhAF_mysql.php');
 include (dirname ( __FILE__ ) . '/../../google/googleDocToken.php');
