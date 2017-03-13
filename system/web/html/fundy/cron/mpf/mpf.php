@@ -3,7 +3,7 @@ $time_start = microtime ( true );
 include (dirname ( __FILE__ ) . '/../../../.ba&4AhAF_mysql.php');
 include (dirname ( __FILE__ ) . '/../../google/googleDocToken.php');
 
-mysql_query ( "CREATE TABLE IF NOT EXISTS `mpf`.`" . date ( "Y_m_d" ) . "` (
+mysql_query ( "CREATE TABLE IF NOT EXISTS `mpf`.`" . $_YMD . "` (
 				  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 				  `create_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 				  `ticker_google` varchar(45) NOT NULL,
@@ -67,7 +67,7 @@ function insertTo($row) {
 		$iquery = $iquery . "," . $col;
 	}
 	
-	$cmd = "INSERT INTO `mpf`.`" . date ( "Y_m_d" ) . "` 
+	$cmd = "INSERT INTO `mpf`.`" . $_YMD . "` 
 			(`ticker_google`, `morningstarrating`, `price`, 
 			`closeyest`, `change`, `changepect`, `returnytd`, 
 			`returnday`, `return1`, `return4`, `return13`,  
@@ -77,7 +77,7 @@ function insertTo($row) {
 	
 	if (count ( sql_select_array ( "
 				SELECT ID
-				FROM `mpf`.'" . date ( "Y_m_d" ) . "'
+				FROM `mpf`.'" . $_YMD . "'
 				WHERE ticker_google = '" . $ticker . "'
 				AND date = '" . $tradetime . "'
 				LIMIT 1

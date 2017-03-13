@@ -1,6 +1,5 @@
 <?php
-//date_default_timezone_set ( 'Asia/Taipei' );
-
+date_default_timezone_set('UTC');
 $_YMD = date ( 'Y-m-d' );
 
 $_MYSQLHOST = 'fundydb.alllwork.com';
@@ -12,8 +11,6 @@ if (! $_MYSQLCONNECTION) {
 	die ( mysql_error () );
 }
 
-//mysql_query ( 'SET NAMES "UTF8"' );
-//mysql_query ( 'SET SESSION time_zone = "+8:00"' );
 function sql_select_obj($query) {
 	$result = new stdClass ();
 	$q = mysql_query ( $query );

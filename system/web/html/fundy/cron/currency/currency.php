@@ -28,7 +28,7 @@ if (count ( $values ) == 0) {
 		$row = $values [$i];
 		if ($row [1] == "HKD") {
 			mysql_query ( "
-				CREATE TABLE IF NOT EXISTS `currency`.`" . $row [1] . "_" . date ( "Y_m_d" ) . "` (
+				CREATE TABLE IF NOT EXISTS `currency`.`" . $row [1] . "_" . $_YMD . "` (
 				  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 				  `create_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 				  `currency` varchar(45) NOT NULL,
@@ -49,13 +49,13 @@ if (count ( $values ) == 0) {
 				
 				$price = $row [$ii];
 				
-				$cmd = "INSERT INTO `currency`.`" . $row [1] . "_" . date ( "Y_m_d" ) . "`
+				$cmd = "INSERT INTO `currency`.`" . $row [1] . "_" . $_YMD . "`
 				(`currency`, `price`) VALUES ";
-				$cmd = $cmd . "('" . $currency . "'," . substr ( $iquery, 1 ) . "),";
+				$cmd = $cmd . "('" . $currency . "','" . substr ( $iquery, 1 ) . "'),";
 				
 				if (count ( sql_select_array ( "
 					  SELECT ID
-					  FROM `currency`.`" . $row [1] . "_" . date ( "Y_m_d" ) . "`
+					  FROM `currency`.`" . $row [1] . "_" . $_YMD . "`
 					  WHERE currency = '" . $currency . "'
 					  AND price = '" . $price . "' 
 					  AND create_datetime > DATE_ADD(NOW(), INTERVAL -30 SECOND)

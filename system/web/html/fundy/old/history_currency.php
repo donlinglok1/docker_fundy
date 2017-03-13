@@ -1,5 +1,4 @@
 <?php
-date_default_timezone_set ( "Asia/Taipei" );
 $time_start = microtime ( true );
 
 ini_set ( 'session.save_path', dirname ( __FILE__ ) . '/session' );
