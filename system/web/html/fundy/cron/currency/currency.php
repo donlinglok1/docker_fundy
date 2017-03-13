@@ -43,7 +43,7 @@ if (count ( $values ) == 0) {
 				
 				$col = "'" . $row [$ii] . "'";
 				
-				$iquery = $iquery . "," . $col;
+				$iquery = $col;
 				
 				$currency = $values [1] [$ii];
 				
