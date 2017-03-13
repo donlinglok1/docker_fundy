@@ -5,7 +5,7 @@ include (dirname ( __FILE__ ) . '/../../google/googleDocToken.php');
 
 $array = sql_select_array ( "
 		SELECT ticker_google AS 'ticker'
-		FROM 'fundy'.'mpfs'
+		FROM `fundy`.`mpfs`
 		" );
 
 foreach ( $array as $item ) {
@@ -79,7 +79,7 @@ function insertTo($ticker, $row) {
 	$cmd = $cmd . "('" . $ticker . "'," . substr ( $iquery, 1 ) . "),";
 	
 	mysql_query ( "
-				CREATE TABLE 'mpf'.`" . $date . "` (
+				CREATE TABLE `mpf`.`" . $date . "` (
 				  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 				  `create_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 				  `ticker_google` varchar(45) NOT NULL,

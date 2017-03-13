@@ -28,7 +28,7 @@ if (count ( $values ) == 0) {
 		$row = $values [$i];
 		if ($row [1] == "HKD") {
 			mysql_query ( "
-				CREATE TABLE IF NOT EXISTS 'currency'.`" . $row [1] . "_" . date ( "Y_m_d" ) . "` (
+				CREATE TABLE IF NOT EXISTS `currency`.`" . $row [1] . "_" . date ( "Y_m_d" ) . "` (
 				  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 				  `create_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 				  `currency` varchar(45) NOT NULL,

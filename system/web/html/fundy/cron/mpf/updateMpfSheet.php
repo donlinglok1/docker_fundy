@@ -8,7 +8,7 @@ include (dirname ( __FILE__ ) . '/../../google/googleDocToken.php');
 
 $tablearray = sql_select_array ( "
 		SELECT company, ticker_google AS 'ticker'
-		FROM 'fundy'.'mpfs'
+		FROM `fundy`.`mpfs`
 		" );
 
 $tarray = array ();

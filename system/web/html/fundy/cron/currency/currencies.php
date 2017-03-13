@@ -8,7 +8,7 @@ include (dirname ( __FILE__ ) . '/../../simple_html_dom.php');
 
 mysql_query ( "
 				CREATE TABLE 
-				IF NOT EXISTS 'fundy'.`currencies` (
+				IF NOT EXISTS `fundy`.`currencies` (
 				  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 				  `create_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 				  `company` varchar(100) NOT NULL,
