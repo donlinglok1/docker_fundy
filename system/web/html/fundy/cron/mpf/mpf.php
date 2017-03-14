@@ -40,21 +40,25 @@ if (count ( $values ) == 0) {
 } else {
 	// echo json_encode ( $values, true );
 	
-	foreach ( $values as $row ) {
-		insertTo ( $row );
-	}
-}
-function insertTo($row) {
-	$iquery = "";
-	$ticker = "";
-	$tradetime = "'#N/A'";
-
 	$cmd = "INSERT INTO `mpf`.`" . $_YMD . "`
 			(`ticker_google`, `morningstarrating`, `price`,
 			`closeyest`, `change`, `changepect`, `returnytd`,
 			`returnday`, `return1`, `return4`, `return13`,
 			`return52`, `return156`, `return260`, `expenseratio`,
 			`date`, `yieldpct`) VALUES  ";
+	
+	foreach ( $values as $row ) {
+		$cmd = $cmd . insertTo ( $row );
+	}
+	
+	echo '<br>' . sql_insert_id ( substr ( $cmd, 0, - 1 ) );
+	echo "mysql_errno: " . mysql_error ( $_MYSQLCONNECTION ) . PHP_EOL;
+}
+function insertTo($row) {
+	$iquery = "";
+	$ticker = "";
+	$tradetime = "'#N/A'";
+	$cmd = "";
 	
 	foreach ( $row as $col ) {
 		if (strpos ( $col, '上午' ) !== false) {
@@ -75,8 +79,6 @@ function insertTo($row) {
 		$iquery = $iquery . "," . $col;
 	}
 	
-	$cmd = $cmd . "(" . substr ( $iquery, 1 ) . "),";
-	
 	if (count ( sql_select_array ( "
 				SELECT ID
 				FROM `mpf`.'" . $_YMD . "'
@@ -84,10 +86,12 @@ function insertTo($row) {
 				AND date = '" . $tradetime . "'
 				LIMIT 1
 				" ) ) < 1) {
+		
+		$cmd = $cmd . "(" . substr ( $iquery, 1 ) . "),";
 		echo $cmd;
-		echo '<br>' . sql_insert_id ( substr ( $cmd, 0, - 1 ) );
-		echo "mysql_errno: " . mysql_error ( $_MYSQLCONNECTION ) . PHP_EOL;
 	}
+	
+	return $cmd;
 }
 
 echo (microtime ( true ) - $time_start);
