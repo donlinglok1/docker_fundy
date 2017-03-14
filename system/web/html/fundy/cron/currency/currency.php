@@ -51,7 +51,7 @@ if (count ( $values ) == 0) {
 				
 				$cmd = "INSERT INTO `currency`.`" . $row [1] . "_" . $_YMD . "`
 				(`currency`, `price`) VALUES ";
-				$cmd = $cmd . "('" . $currency . "','" . substr ( $iquery, 1 ) . "'),";
+				$cmd = $cmd . "('" . $currency . "','" . substr ( $iquery, 1 ) . "),";
 				
 				if (count ( sql_select_array ( "
 					  SELECT ID
