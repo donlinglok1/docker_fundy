@@ -48,6 +48,14 @@ function insertTo($row) {
 	$iquery = "";
 	$ticker = "";
 	$tradetime = "'#N/A'";
+
+	$cmd = "INSERT INTO `mpf`.`" . $_YMD . "`
+			(`ticker_google`, `morningstarrating`, `price`,
+			`closeyest`, `change`, `changepect`, `returnytd`,
+			`returnday`, `return1`, `return4`, `return13`,
+			`return52`, `return156`, `return260`, `expenseratio`,
+			`date`, `yieldpct`) VALUES  ";
+	
 	foreach ( $row as $col ) {
 		if (strpos ( $col, '上午' ) !== false) {
 			$col = str_replace ( "上午 ", "", $col ) . " AM";
@@ -67,12 +75,6 @@ function insertTo($row) {
 		$iquery = $iquery . "," . $col;
 	}
 	
-	$cmd = "INSERT INTO `mpf`.`" . $_YMD . "` 
-			(`ticker_google`, `morningstarrating`, `price`, 
-			`closeyest`, `change`, `changepect`, `returnytd`, 
-			`returnday`, `return1`, `return4`, `return13`,  
-			`return52`, `return156`, `return260`, `expenseratio`, 
-			`date`, `yieldpct`) VALUES  ";
 	$cmd = $cmd . "(" . substr ( $iquery, 1 ) . "),";
 	
 	if (count ( sql_select_array ( "

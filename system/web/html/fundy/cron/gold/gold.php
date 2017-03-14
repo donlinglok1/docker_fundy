@@ -3,7 +3,7 @@ include (dirname ( __FILE__ ) . '/../../../.ba&4AhAF_mysql.php');
 include (dirname ( __FILE__ ) . '/../../simple_html_dom.php');
 
 mysql_query ( "
-				CREATE TABLE IF NOT EXISTS  gold.`" . date ( "Y_m_d" ) . "` (
+				CREATE TABLE IF NOT EXISTS  gold.`" . $_YMD . "` (
 				  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 				  `create_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 				  `price` varchar(45) NOT NULL,
@@ -22,7 +22,7 @@ foreach ( $html->find ( 'div[id=gold_spot_3] b span' ) as $element ) {
 	// echo $element->innertext;
 	
 	echo sql_insert_id ( "
-			INSERT INTO `gold`.`" . date ( "Y_m_d" ) . "` 
+			INSERT INTO `gold`.`" . $_YMD . "` 
 			(`price`) 
 			VALUES ('" . ($element->innertext) . "');
 		" );
