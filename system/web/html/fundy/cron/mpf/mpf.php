@@ -76,7 +76,7 @@ function insertTo($row) {
 			$col = "'" . $col . "'";
 		}
 		
-		$iquery = $iquery . "," . $col;
+		$iquery = $iquery . "," . mysql_real_escape_string($col);
 	}
 	
 	if (count ( sql_select_array ( "

@@ -9,9 +9,6 @@ $array = sql_select_array ( "
 		" );
 
 foreach ( $array as $item ) {
-	loop ( $item );
-}
-function loop($item) {
 	$ticker = $item ["ticker"] . "HKD";
 	echo $ticker;
 
