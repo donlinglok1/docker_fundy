@@ -44,7 +44,7 @@ for($i = 0; $i < 100; $i ++) {
 			$nobr = str_get_html ( $element2 [0] );
 			$localName = $nobr->find ( 'a' );
 			$company = $localName [0]->innertext;
-			$company = str_replace ( ' ', '', $company );
+			//$company = str_replace ( ' ', '', $company );
 			echo '<br>' . $company;
 			
 			$stock_exchanges_symbol_google = "MUTF_HK";

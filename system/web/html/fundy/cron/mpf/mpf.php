@@ -51,6 +51,7 @@ if (count ( $values ) == 0) {
 		$cmd = $cmd . insertTo ( $row );
 	}
 	
+	echo substr ( $cmd, 0, - 1 );
 	echo '<br>' . sql_insert_id ( substr ( $cmd, 0, - 1 ) );
 	echo "mysql_errno: " . mysql_error ( $_MYSQLCONNECTION ) . PHP_EOL;
 }
