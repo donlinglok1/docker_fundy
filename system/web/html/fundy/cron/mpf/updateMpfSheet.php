@@ -37,7 +37,7 @@ for($i = 0; $i < count ( $tablearray ); $i ++) {
 }
 
 $spreadsheetId = '1HlAK-2ICLM2uoBR9xkC5hGWplxeBQ1FyflPXeNowO6w';
-$range = 'sheet1!B3:ZZ9999';
+$range = 'sheet1!A3:ZZ9999';
 $valueRange = new Google_Service_Sheets_BatchUpdateValuesRequest ( array (
 		"valueInputOption" => "USER_ENTERED",
 		"data" => array (
