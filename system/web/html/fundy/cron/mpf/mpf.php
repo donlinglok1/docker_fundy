@@ -74,10 +74,10 @@ function insertTo($row) {
 			$ticker = $col;
 			$col = "'" . $col . "'";
 		} else {
-			$col = "'" . $col . "'";
+			$col = "'" . mysql_real_escape_string($col) . "'";
 		}
 		
-		$iquery = $iquery . "," . mysql_real_escape_string($col);
+		$iquery = $iquery . "," . $col;
 	}
 	
 	if (count ( sql_select_array ( "

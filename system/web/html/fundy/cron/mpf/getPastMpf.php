@@ -6,6 +6,7 @@ include (dirname ( __FILE__ ) . '/../../google/googleDocToken.php');
 $array = sql_select_array ( "
 		SELECT ticker_google AS 'ticker'
 		FROM `fundy`.`mpfs`
+		LIMIT 0,1
 		" );
 
 foreach ( $array as $item ) {
