@@ -28,9 +28,7 @@ foreach ( $array as $item ) {
 			) 
 	) );
 	
-	$service->spreadsheets_values->batchUpdate ( $spreadsheetId, $valueRange );
-	
-	sleep ( 3 );
+	echo $service->spreadsheets_values->batchUpdate ( $spreadsheetId, $valueRange );
 	
 	$range = 'sheet1!A7:ZZ9999';
 	$response = $service->spreadsheets_values->get ( $spreadsheetId, $range );
