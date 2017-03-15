@@ -6,6 +6,4 @@ RUN docker-php-ext-install mysql
 RUN docker-php-ext-install mysqli
 #RUN docker-php-ext-install pdo
 
-#ADD ./html /var/www/html
-
 #CMD ["/bin/bash"]
