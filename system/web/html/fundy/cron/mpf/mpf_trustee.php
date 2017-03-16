@@ -7,7 +7,7 @@ $array = sql_select_array ( "
 		FROM `fundy`.`mpfs`
 		" );
 $array2 = sql_select_array ( "
-		SELECT id, name
+		SELECT id, key
 		FROM `fundy`.`mpfs_trustee`
 		" );
 
@@ -17,7 +17,7 @@ for($i = 0; $i < $index; $i ++) {
 	echo $company;
 	
 	foreach ( $array2 as $item2 ) {
-		$name = $item2 ["name"];
+		$name = $item2 ["key"];
 		if (substr ( $company, 0, strlen ( $name ) ) === $name) {
 			update ( $i, $item2 ["id"] );
 		}

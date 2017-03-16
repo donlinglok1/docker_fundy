@@ -11,6 +11,8 @@ if (! $_MYSQLCONNECTION) {
 	die ( mysql_error () );
 }
 
+mysql_query ( 'SET NAMES "UTF8"' );
+
 function sql_select_obj($query) {
 	$result = new stdClass ();
 	$q = mysql_query ( $query );
