@@ -7,7 +7,7 @@ include (dirname ( __FILE__ ) . '/../../../.ba&4AhAF_mysql.php');
 include (dirname ( __FILE__ ) . '/../../simple_html_dom.php');
 
 mysql_query ( "
-				CREATE TABLE 
+				CREATE TABLE
 				IF NOT EXISTS `fundy`.`mpfs` (
 				  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 				  `create_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -32,7 +32,7 @@ for($i = 0; $i < 100; $i ++) {
 	$curlResult = curl_exec ( $ch );
 	// $curlResult = mb_convert_encoding ( $curlResult, 'utf-8', 'GBK,UTF-8,GB2312,ASCII' );
 	echo $curlResult;
-	
+
 	$html = str_get_html ( $curlResult );
 	$htmlArray = $html->find ( 'tr[class=snippet]' );
 	if (count ( $htmlArray ) == 0) {
@@ -46,10 +46,10 @@ for($i = 0; $i < 100; $i ++) {
 			$company = $localName [0]->innertext;
 			//$company = str_replace ( ' ', '', $company );
 			echo '<br>' . $company;
-			
+				
 			$stock_exchanges_symbol_google = "MUTF_HK";
 			echo $stock_exchanges_symbol_google;
-			
+				
 			$ticker_google = '';
 			$element4 = $snippet->find ( 'td[class=symbol]' );
 			$nobr = str_get_html ( $element4 [0] );
@@ -63,21 +63,21 @@ for($i = 0; $i < 100; $i ++) {
 			$ticker_google = str_replace ( '</nobr>', '', $ticker_google );
 			$ticker_google = str_replace ( '<nobr>', '', $ticker_google );
 			echo $ticker_google;
-			
+				
 			if (count ( sql_select_array ( "
 				SELECT ID
 				FROM `fundy`.`mpfs`
 				WHERE ticker_google = '" . mysql_real_escape_string ( $ticker_google ) . "'
 				LIMIT 1
 				" ) ) < 1) {
-				
+
 				echo sql_insert_id ( "
 				INSERT INTO `fundy`.`mpfs` (`company`, `ticker_google`)
 				VALUES ('" . mysql_real_escape_string ( $company ) . "',
 					'" . mysql_real_escape_string ( $stock_exchanges_symbol_google ) . ":" . mysql_real_escape_string ( $ticker_google ) . "');
 	 		 " );
 			}
-			
+				
 			echo "mysql_errno: " . mysql_errno ( $_MYSQLCONNECTION ) . PHP_EOL;
 		}
 	}
@@ -85,4 +85,4 @@ for($i = 0; $i < 100; $i ++) {
 }
 
 echo (microtime ( true ) - $time_start);
-?> 
+?>
