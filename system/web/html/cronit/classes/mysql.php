@@ -3,8 +3,7 @@ date_default_timezone_set ( 'UTC' );
 
 define ( "YMD", date ( 'Y-m-d' ) );
 class MySQL {
-	private $_MYSQLCONNECTION;
-	
+	private $_MYSQLCONNECTION = null;
 	function MySQL() {
 		$_MYSQLHOST = 'fundydb.alllwork.com';
 		$_MYSQLUSER = 'fundy';
