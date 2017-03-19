@@ -11,7 +11,7 @@ class MySQL {
 		
 		$this->$_MYSQLCONNECTION = mysql_connect ( $_MYSQLHOST, $_MYSQLUSER, $_MYSQLPW );
 		
-		if (! $_MYSQLCONNECTION) {
+		if (! $this->$_MYSQLCONNECTION) {
 			die ( mysql_error () );
 		}
 		
@@ -31,7 +31,7 @@ class MySQL {
 	}
 	public function insert($query) {
 		mysql_query ( $query );
-		echo "mysql_errno: " . mysql_errno ( $_MYSQLCONNECTION ) . PHP_EOL;
+		echo "mysql_errno: " . mysql_errno ( $this->$_MYSQLCONNECTION ) . PHP_EOL;
 		return mysql_insert_id ();
 	}
 	public function update($query) {
