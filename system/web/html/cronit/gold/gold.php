@@ -3,7 +3,7 @@ include_once __DIR__ . "/../autoload.php";
 
 $mysql = new MySQL ();
 $mysql->query ( "
-				CREATE TABLE IF NOT EXISTS  gold.`" . $_YMD . "` (
+				CREATE TABLE IF NOT EXISTS  gold.`" . YMD . "` (
 				  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 				  `create_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 				  `price` varchar(45) NOT NULL,
@@ -13,7 +13,7 @@ $mysql->query ( "
 				" );
 
 $curl = new CURL ();
-$$curlResult = $curl->get ( 'http://www.pmbull.com/gold-price/' );
+$curlResult = $curl->get ( 'http://www.pmbull.com/gold-price/' );
 // echo $curlResult;
 
 $mysql = new MySQL ();
