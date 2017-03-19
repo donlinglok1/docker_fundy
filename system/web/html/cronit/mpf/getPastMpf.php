@@ -1,15 +1,18 @@
 <?php
 $time_start = microtime ( true );
-include (dirname ( __FILE__ ) . '/../../../.ba&4AhAF_mysql.php');
+
+include (dirname ( __FILE__ ) . '/../../.ba&4AhAF_mysql.php');
+
 include (dirname ( __FILE__ ) . '/../../google/googleDocToken.php');
 
 $array = sql_select_array ( "
 		SELECT ticker_google AS 'ticker'
-		FROM `fundy`.`currencies`
+		FROM `fundy`.`mpfs`
+		LIMIT 0,1
 		" );
 
 foreach ( $array as $item ) {
-	$ticker = $item ["ticker"] . "HKD";
+	$ticker = $item ["ticker"];
 	echo $ticker;
 
 	$spreadsheetId = '1G3a5Q8YuoUy5OuttriaXn6uCQ673JmFrY_r8h2ZUQbQ';
@@ -27,7 +30,7 @@ foreach ( $array as $item ) {
 			) 
 	) );
 	
-	$service->spreadsheets_values->batchUpdate ( $spreadsheetId, $valueRange );
+	$response2 = $service->spreadsheets_values->batchUpdate ( $spreadsheetId, $valueRange );
 	
 	$range = 'sheet1!A7:ZZ9999';
 	$response = $service->spreadsheets_values->get ( $spreadsheetId, $range );
@@ -39,7 +42,6 @@ foreach ( $array as $item ) {
 		// echo json_encode ( $values, true );
 		
 		foreach ( $values as $row ) {
-			
 			insertTo ( $ticker, $row );
 		}
 	}
@@ -69,14 +71,13 @@ function insertTo($ticker, $row) {
 		$iquery = $iquery . "," . $col;
 	}
 	
-	$cmd = "INSERT INTO `currency`.`" . $date . "`
-				(`ticker_google`, `date`, `priceopen`,
-				`high`, `low`, `price`,`volume`) VALUES 
-	 		 ";
+	$cmd = "INSERT INTO `mpf`.`" . $date . "`
+			(`ticker_google`, `date`, `priceopen`,
+			`high`, `low`, `price`,`volume`) VALUES ";
 	$cmd = $cmd . "('" . $ticker . "'," . substr ( $iquery, 1 ) . "),";
 	
 	mysql_query ( "
-				CREATE TABLE `currency`.`" . $date . "` (
+				CREATE TABLE `mpf`.`" . $date . "` (
 				  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 				  `create_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
 				  `ticker_google` varchar(45) NOT NULL,
@@ -94,7 +95,7 @@ function insertTo($ticker, $row) {
 	
 	if (count ( sql_select_array ( "
 				SELECT ID
-				FROM `currency`.`" . $date . "`
+				FROM `mpf`.`" . $date . "`
 				WHERE ticker_google = '" . $ticker . "'
 				AND date = '" . $tradetime . "'
 				LIMIT 1

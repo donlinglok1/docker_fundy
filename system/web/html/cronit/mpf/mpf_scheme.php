@@ -1,11 +1,14 @@
 <?php
 $time_start = microtime ( true );
-include (dirname ( __FILE__ ) . '/../../../.ba&4AhAF_mysql.php');
-include (dirname ( __FILE__ ) . '/../../simple_html_dom.php');
 
-//http://www.mpfa.org.hk/tch/public_registers/registered_schemes_cf/fulist.do
+include (dirname ( __FILE__ ) . '/../../.ba&4AhAF_mysql.php');
 
-$html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpadding="0" class="summarytable">
+include (dirname ( __FILE__ ) . '/../../fundy/simple_html_dom.php');
+
+// http://www.mpfa.org.hk/tch/public_registers/registered_schemes_cf/fulist.do
+
+$html = str_get_html ( '
+		<table width="100%" border="0" cellspacing="1" cellpadding="0" class="summarytable">
                       <tbody><tr>
                         <th width="130" align="left" style="background-color:#eceaea; border-top:2px solid #b2b2b2;" scope="col">計劃名稱(中)</th>
                         <th width="" align="left" style="background-color:#eceaea; border-top:2px solid #b2b2b2;" scope="col">計劃名稱(英)</th>
@@ -26,13 +29,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               31/01/2000
                             </td>
                             <td valign="top">
-
+               
 
                             			<a href="/tch/public_registers/registered_schemes_cf/OD/MT00172_AIA_MPF_-_Prime_Value_Choice_CH.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
 
 
-
+               
                             </td>
                         </tr>
 
@@ -45,13 +48,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               17/07/2000
                             </td>
                             <td valign="top">
-
+               
 
                             			<a href="/tch/public_registers/registered_schemes_cf/OD/MT00490_Allianz_Global_Investors_MPF_Plan_CH.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
 
 
-
+               
                             </td>
                         </tr>
 
@@ -64,13 +67,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               25/05/2009
                             </td>
                             <td valign="top">
-
+               
 
                             			<a href="/tch/public_registers/registered_schemes_cf/OD/MT00539_AMTD_MPF_Scheme_CH.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
 
 
-
+               
                             </td>
                         </tr>
 
@@ -83,13 +86,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               31/01/2000
                             </td>
                             <td valign="top">
-
+               
 
                             			<a href="/tch/public_registers/registered_schemes_cf/OD/MT00393_BCOM_Joyful_Retirement_MPF_Scheme_CH.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
 
 
-
+               
                             </td>
                         </tr>
 
@@ -102,13 +105,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               13/04/2000
                             </td>
                             <td valign="top">
-
+               
 
                             			<a href="/tch/public_registers/registered_schemes_cf/OD/IS00017_BCT_(MPF)_Industry_Choice_CH.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
 
 
-
+               
                             </td>
                         </tr>
 
@@ -121,13 +124,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               31/01/2000
                             </td>
                             <td valign="top">
-
+               
 
                             			<a href="/tch/public_registers/registered_schemes_cf/OD/MT00016_BCT_(MPF)_Pro_Choice_CH.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
 
 
-
+               
                             </td>
                         </tr>
 
@@ -140,13 +143,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               13/04/2000
                             </td>
                             <td valign="top">
-
+               
 
                             			<a href="/tch/public_registers/registered_schemes_cf/OD/IS00025_BEA_(MPF)_Industry_Scheme_CH.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
 
 
-
+               
                             </td>
                         </tr>
 
@@ -159,13 +162,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               31/01/2000
                             </td>
                             <td valign="top">
-
+               
 
                             			<a href="/tch/public_registers/registered_schemes_cf/OD/MT00202_BEA_(MPF)_Master_Trust_Scheme_CH.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
 
 
-
+               
                             </td>
                         </tr>
 
@@ -178,13 +181,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               21/08/2012
                             </td>
                             <td valign="top">
-
+               
 
                             			<a href="/tch/public_registers/registered_schemes_cf/OD/MT00571_BEA_(MPF)_Value_Scheme_CH.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
 
 
-
+               
                             </td>
                         </tr>
 
@@ -197,13 +200,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               31/01/2000
                             </td>
                             <td valign="top">
-
+               
 
                             			<a href="/tch/public_registers/registered_schemes_cf/OD/MT00091_BOC-Prudential_Easy-Choice_Mandatory_Provident_Fund_Scheme_CH.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
 
 
-
+               
                             </td>
                         </tr>
 
@@ -216,13 +219,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               31/01/2000
                             </td>
                             <td valign="top">
-
+               
 
                             			<a href="/tch/public_registers/registered_schemes_cf/OD/MT00083_China_Life_MPF_Master_Trust_Scheme_CH.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
 
 
-
+               
                             </td>
                         </tr>
 
@@ -235,13 +238,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               31/01/2000
                             </td>
                             <td valign="top">
-
+               
 
                             			<a href="/tch/public_registers/registered_schemes_cf/OD/MT00288_Fidelity_Retirement_Master_Trust_CH.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
 
 
-
+               
                             </td>
                         </tr>
 
@@ -254,13 +257,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               31/01/2000
                             </td>
                             <td valign="top">
-
+               
 
                             			<a href="/tch/public_registers/registered_schemes_cf/OD/MT00326_FWD_MPF_Master_Trust_Basic_Scheme_CH.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
 
 
-
+               
                             </td>
                         </tr>
 
@@ -273,13 +276,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               31/01/2000
                             </td>
                             <td valign="top">
-
+               
 
                             			<a href="/tch/public_registers/registered_schemes_cf/OD/MT00318_FWD_MPF_Master_Trust_Comprehensive_Scheme_CH.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
 
 
-
+               
                             </td>
                         </tr>
 
@@ -292,13 +295,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               31/01/2000
                             </td>
                             <td valign="top">
-
+               
 
                             			<a href="/tch/public_registers/registered_schemes_cf/OD/MT00121_Haitong_MPF_Retirement_Fund_CH.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
 
 
-
+               
                             </td>
                         </tr>
 
@@ -311,11 +314,11 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               09/01/2008
                             </td>
                             <td valign="top">
+               
 
 
 
-
-
+               
                             </td>
                         </tr>
 
@@ -328,11 +331,11 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               31/01/2000
                             </td>
                             <td valign="top">
+               
 
 
 
-
-
+               
                             </td>
                         </tr>
 
@@ -345,13 +348,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               31/01/2000
                             </td>
                             <td valign="top">
-
+               
 
                             			<a href="/tch/public_registers/registered_schemes_cf/OD/MT00253_Hang_Seng_Mandatory_Provident_Fund_-_SuperTrust_Plus_CH.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
 
 
-
+               
                             </td>
                         </tr>
 
@@ -364,13 +367,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               25/11/2010
                             </td>
                             <td valign="top">
-
+               
 
                             			<a href="/tch/public_registers/registered_schemes_cf/OD/MT00563_Hang_Seng_Mandatory_Provident_Fund_-_ValueChoice_CH.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
 
 
-
+               
                             </td>
                         </tr>
 
@@ -383,11 +386,11 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               09/01/2008
                             </td>
                             <td valign="top">
+               
 
 
 
-
-
+               
                             </td>
                         </tr>
 
@@ -400,11 +403,11 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               31/01/2000
                             </td>
                             <td valign="top">
+               
 
 
 
-
-
+               
                             </td>
                         </tr>
 
@@ -417,13 +420,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               31/01/2000
                             </td>
                             <td valign="top">
-
+               
 
                             			<a href="/tch/public_registers/registered_schemes_cf/OD/MT00245_HSBC_Mandatory_Provident_Fund_-_SuperTrust_Plus_CH.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
 
 
-
+               
                             </td>
                         </tr>
 
@@ -436,13 +439,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               25/11/2010
                             </td>
                             <td valign="top">
-
+               
 
                             			<a href="/tch/public_registers/registered_schemes_cf/OD/MT00555_HSBC_Mandatory_Provident_Fund_-_ValueChoice_CH.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
 
 
-
+               
                             </td>
                         </tr>
 
@@ -455,13 +458,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               31/01/2000
                             </td>
                             <td valign="top">
-
+               
 
                             			<a href="/tch/public_registers/registered_schemes_cf/OD/MT00075_Invesco_Strategic_MPF_Scheme_CH.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
 
 
-
+               
                             </td>
                         </tr>
 
@@ -474,13 +477,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               05/05/2000
                             </td>
                             <td valign="top">
-
+               
 
                             			<a href="/tch/public_registers/registered_schemes_cf/OD/MT00482_Manulife_Global_Select_MPF_Scheme_CH.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
 
 
-
+               
                             </td>
                         </tr>
 
@@ -493,13 +496,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               31/01/2000
                             </td>
                             <td valign="top">
-
+               
 
 
 
                             			<a href="/sch/public_registers/registered_schemes_cf/OD/MT00415_Manulife_MPF_Plan_-_Advanced_BILINGUAL.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
-
+               
                             </td>
                         </tr>
 
@@ -512,13 +515,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               31/01/2000
                             </td>
                             <td valign="top">
-
+               
 
 
 
                             			<a href="/sch/public_registers/registered_schemes_cf/OD/MT00423_Manulife_MPF_Plan_-_Basic_BILINGUAL.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
-
+               
                             </td>
                         </tr>
 
@@ -531,13 +534,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               31/01/2000
                             </td>
                             <td valign="top">
-
+               
 
                             			<a href="/tch/public_registers/registered_schemes_cf/OD/MT00350_MASS_Mandatory_Provident_Fund_Scheme_CH.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
 
 
-
+               
                             </td>
                         </tr>
 
@@ -550,13 +553,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               23/04/2010
                             </td>
                             <td valign="top">
-
+               
 
                             			<a href="/tch/public_registers/registered_schemes_cf/OD/MT00547_My_Choice_Mandatory_Provident_Fund_Scheme_CH.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
 
 
-
+               
                             </td>
                         </tr>
 
@@ -569,13 +572,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               13/01/2005
                             </td>
                             <td valign="top">
-
+               
 
                             			<a href="/tch/public_registers/registered_schemes_cf/OD/MT00504_Principal_MPF_-_Simple_Plan_CH.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
 
 
-
+               
                             </td>
                         </tr>
 
@@ -589,7 +592,7 @@ $index = count ( $array );
 
 $insertVaule = "";
 for($i = 0; $i < $index; $i ++) {
-	if ($i > 0 ) {
+	if ($i > 0) {
 		$element = $array [$i];
 
 		$result = $element->innertext;
@@ -601,19 +604,25 @@ for($i = 0; $i < $index; $i ++) {
 		$result = str_replace ( '<table>', "',", $result );
 		$result = str_replace ( "  ", "", $result );
 
-		$insertVaule = $insertVaule . ",('".substr ( $result, 4, strrpos ( $result, '<a href="' ) - 4 )."')".PHP_EOL;
+		if (null == strrpos ( $result, '<a href="' )) {
+			$insertVaule = $insertVaule . ",('" . substr ( $result, 4 ) . "')" . PHP_EOL;
+			echo ",('" . substr ( $result, 4 ) . "')" . PHP_EOL;
+		} else {
+			$insertVaule = $insertVaule . ",('" . substr ( $result, 4, strrpos ( $result, '<a href="' ) - 4 ) . "')" . PHP_EOL;
+			echo ",('" . substr ( $result, 4, strrpos ( $result, '<a href="' ) - 4 ) . "')" . PHP_EOL;
+		}
 	}
 }
 
-echo "INSERT INTO fundy.mpfs_scheme (mpfa_id,name_tc,name,`type`,financial_year_date,`key`)
-VALUES". substr($insertVaule,1) . "\n";
+echo "INSERT INTO fundy.mpfs_scheme (mpfa_id,name_tc,name,`type`,financial_year_date,`key`) VALUES" . substr ( $insertVaule, 1 ) . "\n";
 
-echo sql_insert_id( "INSERT INTO fundy.mpfs_scheme (mpfa_id,name_tc,name,`type`,financial_year_date,`key`)
-VALUES". substr($insertVaule,1) . "\n");
-
+echo sql_insert_id ( "INSERT INTO fundy.mpfs_scheme (mpfa_id,name_tc,name,`type`,financial_year_date,`key`) VALUES" . substr ( $insertVaule, 1 ) . "\n" );
 echo "mysql_errno: " . mysql_errno ( $_MYSQLCONNECTION ) . PHP_EOL;
 
-$html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpadding="0" class="summarytable">
+
+
+$html = str_get_html ( '
+		<table width="100%" border="0" cellspacing="1" cellpadding="0" class="summarytable">
                       <tbody><tr>
                         <th width="130" align="left" style="background-color:#eceaea; border-top:2px solid #b2b2b2;" scope="col">計劃名稱(中)</th>
                         <th width="" align="left" style="background-color:#eceaea; border-top:2px solid #b2b2b2;" scope="col">計劃名稱(英)</th>
@@ -634,13 +643,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               31/01/2000
                             </td>
                             <td valign="top">
-
+               
 
                             			<a href="/tch/public_registers/registered_schemes_cf/OD/MT00180_Principal_MPF_-_Smart_Plan_CH.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
 
 
-
+               
                             </td>
                         </tr>
 
@@ -653,13 +662,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               31/01/2000
                             </td>
                             <td valign="top">
-
+               
 
                             			<a href="/tch/public_registers/registered_schemes_cf/OD/MT00040_Principal_MPF_Scheme_Series_600_CH.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
 
 
-
+               
                             </td>
                         </tr>
 
@@ -672,13 +681,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               31/01/2000
                             </td>
                             <td valign="top">
-
+               
 
                             			<a href="/tch/public_registers/registered_schemes_cf/OD/MT00059_Principal_MPF_Scheme_Series_800_CH.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
 
 
-
+               
                             </td>
                         </tr>
 
@@ -691,13 +700,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               30/10/2000
                             </td>
                             <td valign="top">
-
+               
 
 
 
                             			<a href="/sch/public_registers/registered_schemes_cf/OD/ES00020_SHKP_MPF_Employer_Sponsored_Scheme_BILINGUAL.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
-
+               
                             </td>
                         </tr>
 
@@ -710,13 +719,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               31/01/2000
                             </td>
                             <td valign="top">
-
+               
 
                             			<a href="/tch/public_registers/registered_schemes_cf/OD/MT00210_Sun_Life_MPF_Master_Trust_CH.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
 
 
-
+               
                             </td>
                         </tr>
 
@@ -729,13 +738,13 @@ $html = str_get_html ( '<table width="100%" border="0" cellspacing="1" cellpaddi
                               31/01/2000
                             </td>
                             <td valign="top">
-
+               
 
                             			<a href="/tch/public_registers/registered_schemes_cf/OD/MT00067_Sun_Life_Rainbow_MPF_Scheme_CH.pdf" target="_blank"><img alt="" src="/tch/public_registers/registered_schemes_cf/images/pdf_logo.jpg" title="瀏覽"></a>
 
 
 
-
+               
                             </td>
                         </tr>
 
@@ -749,7 +758,7 @@ $index = count ( $array );
 
 $insertVaule = "";
 for($i = 0; $i < $index; $i ++) {
-	if ($i > 0 ) {
+	if ($i > 0) {
 		$element = $array [$i];
 
 		$result = $element->innertext;
@@ -761,16 +770,19 @@ for($i = 0; $i < $index; $i ++) {
 		$result = str_replace ( '<table>', "',", $result );
 		$result = str_replace ( "  ", "", $result );
 
-		$insertVaule = $insertVaule . ",('".substr ( $result, 4, strrpos ( $result, '<a href="' ) - 4 )."')".PHP_EOL;
+		if (null == strrpos ( $result, '<a href="' )) {
+			$insertVaule = $insertVaule . ",('" . substr ( $result, 4 ) . "')" . PHP_EOL;
+			echo ",('" . substr ( $result, 4 ) . "')" . PHP_EOL;
+		} else {
+			$insertVaule = $insertVaule . ",('" . substr ( $result, 4, strrpos ( $result, '<a href="' ) - 4 ) . "')" . PHP_EOL;
+			echo ",('" . substr ( $result, 4, strrpos ( $result, '<a href="' ) - 4 ) . "')" . PHP_EOL;
+		}
 	}
 }
 
-echo  "INSERT INTO fundy.mpfs_scheme (mpfa_id,name_tc,name,`type`,financial_year_date,`key`)
-VALUES". substr($insertVaule,1) . "\n";
+echo "INSERT INTO fundy.mpfs_scheme (mpfa_id,name_tc,name,`type`,financial_year_date,`key`) VALUES" . substr ( $insertVaule, 1 ) . "\n";
 
-echo sql_insert_id( "INSERT INTO fundy.mpfs_scheme (mpfa_id,name_tc,name,`type`,financial_year_date,`key`)
-VALUES". substr($insertVaule,1) . "\n");
-
+echo sql_insert_id ( "INSERT INTO fundy.mpfs_scheme (mpfa_id,name_tc,name,`type`,financial_year_date,`key`) VALUES" . substr ( $insertVaule, 1 ) . "\n" );
 echo "mysql_errno: " . mysql_errno ( $_MYSQLCONNECTION ) . PHP_EOL;
 
 echo (microtime ( true ) - $time_start);

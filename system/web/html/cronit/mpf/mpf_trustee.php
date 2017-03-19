@@ -1,6 +1,7 @@
 <?php
 $time_start = microtime ( true );
-include (dirname ( __FILE__ ) . '/../../../.ba&4AhAF_mysql.php');
+
+include (dirname ( __FILE__ ) . '/../../.ba&4AhAF_mysql.php');
 
 $array = sql_select_array ( "
 		SELECT company
@@ -8,13 +9,13 @@ $array = sql_select_array ( "
 		" );
 $array2 = sql_select_array ( "
 		SELECT id, name
-		FROM `fundy`.`mpfs_trustee`
+		FROM `fundy`.`mpfs_scheme`
 		" );
 
-$index = count ( $array );
+$index = 1;
 for($i = 0; $i < $index; $i ++) {
 	$company = $array [$i] ["company"];
-	echo $company;
+	//echo $company;
 
 	foreach ( $array2 as $item2 ) {
 		$name = $item2 ["name"];
@@ -49,15 +50,15 @@ function get_decorated_diff($old, $new) {
 	);
 }
 
-$string_old = "The quick brown fox jumped over the lazy dog";
-$string_new = "The quick white rabbit jumped over the lazy dog";
-$diff = get_decorated_diff ( $string_old, $string_new );
-echo "<table>
-    <tr>
-        <td>" . $diff ['old'] . "</td>
-        <td>" . $diff ['new'] . "</td>
-    </tr>
-</table>";
+// $string_old = "The quick brown fox jumped over the lazy dog";
+// $string_new = "The quick white rabbit jumped over the lazy dog";
+// $diff = get_decorated_diff ( $string_old, $string_new );
+// echo "<table>
+//     <tr>
+//         <td>" . $diff ['old'] . "</td>
+//         <td>" . $diff ['new'] . "</td>
+//     </tr>
+// </table>";
 
 
 echo (microtime ( true ) - $time_start);

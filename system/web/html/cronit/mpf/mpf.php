@@ -1,6 +1,8 @@
 <?php
 $time_start = microtime ( true );
-include (dirname ( __FILE__ ) . '/../../../.ba&4AhAF_mysql.php');
+
+include (dirname ( __FILE__ ) . '/../../.ba&4AhAF_mysql.php');
+
 include (dirname ( __FILE__ ) . '/../../google/googleDocToken.php');
 
 mysql_query ( "CREATE TABLE IF NOT EXISTS `mpf`.`" . $_YMD . "` (

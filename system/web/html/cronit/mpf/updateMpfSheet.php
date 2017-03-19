@@ -3,7 +3,9 @@ ini_set ( "memory_limit", "256M" );
 set_time_limit ( 0 ); // to infinity for example
 
 $time_start = microtime ( true );
-include (dirname ( __FILE__ ) . '/../../../.ba&4AhAF_mysql.php');
+
+include (dirname ( __FILE__ ) . '/../../.ba&4AhAF_mysql.php');
+
 include (dirname ( __FILE__ ) . '/../../google/googleDocToken.php');
 
 $tablearray = sql_select_array ( "

@@ -1,8 +1,8 @@
 <?php
-include (dirname ( __FILE__ ) . '/../../../.ba&4AhAF_mysql.php');
-include (dirname ( __FILE__ ) . '/../../simple_html_dom.php');
+include_once __DIR__ . "/autoload.php";
 
-mysql_query ( "
+$mysql = new MySQL ();
+$mysql->query ( "
 				CREATE TABLE IF NOT EXISTS  gold.`" . $_YMD . "` (
 				  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
 				  `create_datetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -12,23 +12,24 @@ mysql_query ( "
 				) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 				" );
 
-$ch = curl_init ( 'http://www.pmbull.com/gold-price/' );
-curl_setopt ( $ch, CURLOPT_RETURNTRANSFER, true );
-$curlResult = curl_exec ( $ch );
+$curl = new CURL ();
+$$curlResult = $curl->get ( 'http://www.pmbull.com/gold-price/' );
 // echo $curlResult;
 
-$html = str_get_html ( $curlResult );
+$mysql = new MySQL ();
+$htmldom = new HTMLDom ();
+
+$html = $htmldom->str_get_html ( $curlResult );
 foreach ( $html->find ( 'div[id=gold_spot_3] b span' ) as $element ) {
 	// echo $element->innertext;
 	
-	echo sql_insert_id ( "
+	echo $mysql->sql_insert_id ( "
 			INSERT INTO `gold`.`" . $_YMD . "` 
 			(`price`) 
 			VALUES ('" . ($element->innertext) . "');
 		" );
 	
-	echo "mysql_errno: ";
-	echo mysql_errno ( $_MYSQLCONNECTION ) . mysql_error ( $_MYSQLCONNECTION ) . "\n";
+	echo "mysql_errno: " . mysql_errno ( $_MYSQLCONNECTION ) . PHP_EOL;
 }
 
 ?>
