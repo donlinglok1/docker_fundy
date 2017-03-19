@@ -29,6 +29,7 @@ class MySQL {
 	}
 	public function insert($query) {
 		mysql_query ( $query );
+		echo "mysql_errno: " . mysql_errno ( $_MYSQLCONNECTION ) . PHP_EOL;
 		return mysql_insert_id ();
 	}
 	public function update($query) {

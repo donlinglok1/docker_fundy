@@ -23,13 +23,11 @@ $html = $htmldom->str_get_html ( $curlResult );
 foreach ( $html->find ( 'div[id=gold_spot_3] b span' ) as $element ) {
 	// echo $element->innertext;
 	
-	echo $mysql->sql_insert_id ( "
+	echo $mysql->insert ( "
 			INSERT INTO `gold`.`" . $_YMD . "` 
 			(`price`) 
 			VALUES ('" . ($element->innertext) . "');
 		" );
-	
-	echo "mysql_errno: " . mysql_errno ( $_MYSQLCONNECTION ) . PHP_EOL;
 }
 
 ?>
