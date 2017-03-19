@@ -3,13 +3,15 @@ date_default_timezone_set ( 'UTC' );
 
 define ( "YMD", date ( 'Y-m-d' ) );
 class MySQL {
+	private $_MYSQLCONNECTION = null;
 	function MySQL() {
 		$_MYSQLHOST = 'fundydb.alllwork.com';
 		$_MYSQLUSER = 'fundy';
 		$_MYSQLPW = 'a254984517tu';
-		$_MYSQLCONNECTION = mysql_connect ( $_MYSQLHOST, $_MYSQLUSER, $_MYSQLPW );
 		
-		if (! $_MYSQLCONNECTION) {
+		$this->$_MYSQLCONNECTION = mysql_connect ( $_MYSQLHOST, $_MYSQLUSER, $_MYSQLPW );
+		
+		if (! $this->$_MYSQLCONNECTION) {
 			die ( mysql_error () );
 		}
 		
@@ -29,6 +31,7 @@ class MySQL {
 	}
 	public function insert($query) {
 		mysql_query ( $query );
+		echo "mysql_errno: " . mysql_errno ( $this->$_MYSQLCONNECTION ) . PHP_EOL;
 		return mysql_insert_id ();
 	}
 	public function update($query) {
