@@ -14,7 +14,7 @@ if (! $_MYSQLCONNECTION) {
 mysql_query ( 'SET NAMES "UTF8"' );
 class MySQL {
 	public function query($query) {
-		$q = mysql_query ( $query );
+		mysql_query ( $query );
 	}
 	public function select($query) {
 		$result = array ();
