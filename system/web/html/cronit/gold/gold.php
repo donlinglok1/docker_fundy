@@ -1,5 +1,5 @@
 <?php
-include_once __DIR__ . "/autoload.php";
+include_once __DIR__ . "/../autoload.php";
 
 $mysql = new MySQL ();
 $mysql->query ( "
