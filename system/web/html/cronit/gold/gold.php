@@ -24,7 +24,7 @@ foreach ( $html->find ( 'div[id=gold_spot_3] b span' ) as $element ) {
 	// echo $element->innertext;
 	
 	echo $mysql->insert ( "
-			INSERT INTO `gold`.`" . $_YMD . "` 
+			INSERT INTO `gold`.`" . YMD . "` 
 			(`price`) 
 			VALUES ('" . ($element->innertext) . "');
 		" );
