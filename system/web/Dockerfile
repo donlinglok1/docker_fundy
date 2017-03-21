@@ -5,5 +5,6 @@ EXPOSE 80
 RUN docker-php-ext-install mysql
 #RUN docker-php-ext-install mysqli
 RUN docker-php-ext-install pdo
+RUN docker-php-ext-install pdo_mysql
 
 #CMD ["/bin/bash"]
