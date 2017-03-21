@@ -41,8 +41,9 @@
 
 /**
  * All of the Defines for the classes below.
- * 
+ *
  * @author S.C. Chen <me578022@gmail.com>
+ *        
  */
 define ( 'HDOM_TYPE_ELEMENT', 1 );
 define ( 'HDOM_TYPE_COMMENT', 2 );
@@ -1358,12 +1359,12 @@ class simple_html_dom {
 		}
 		$begin_tag_pos = $this->pos;
 		$this->char = (++ $this->pos < $this->size) ? $this->doc [$this->pos] : null; // next
-		                                                                          
+		                                                                              
 		// end tag
 		if ($this->char === '/') {
 			$this->char = (++ $this->pos < $this->size) ? $this->doc [$this->pos] : null; // next
-			                                                                          // This represents the change in the simple_html_dom trunk from revision 180 to 181.
-			                                                                          // $this->skip($this->token_blank_t);
+			                                                                              // This represents the change in the simple_html_dom trunk from revision 180 to 181.
+			                                                                              // $this->skip($this->token_blank_t);
 			$this->skip ( $this->token_blank );
 			$tag = $this->copy_until_char ( '>' );
 			
@@ -1557,10 +1558,10 @@ class simple_html_dom {
 				$this->parent = $node;
 		}
 		$this->char = (++ $this->pos < $this->size) ? $this->doc [$this->pos] : null; // next
-		                                                                          
+		                                                                              
 		// If it's a BR tag, we need to set it's text to the default text.
-		                                                                          // This way when we see it in plaintext, we can generate formatting that the user wants.
-		                                                                          // since a br tag never has sub nodes, this works well.
+		                                                                              // This way when we see it in plaintext, we can generate formatting that the user wants.
+		                                                                              // since a br tag never has sub nodes, this works well.
 		if ($node->tag == "br") {
 			$node->_ [HDOM_INFO_INNER] = $this->default_br_text;
 		}
