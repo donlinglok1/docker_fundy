@@ -18,17 +18,13 @@ services:
     build: ./system/cron/
     network_mode: host
   mysql:
+    image: mysql:5.7
+    vloumes:
+      - mysql:/var/lib/mysql
+    enviroment:
+      TZ: 'Asia/Shanghai'
+      MYSQL_ROOT_PASSWORD: roota
+    command: ['mysqld', '--character-set-server=utf8']
     network_mode: host
-    build:
-      context: ./mysql
-      args:
-        - MYSQL_DATABASE=default
-        - MYSQL_USER=default
-        - MYSQL_PASSWORD=secret
-        - MYSQL_ROOT_PASSWORD=root
-      volumes:
-        - mysql:/var/lib/mysql
-      ports:
-        - "3306:3306"
 
     
