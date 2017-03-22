@@ -1,0 +1,28 @@
+version: "2"
+services:
+  #api:
+  #  build: ./system/api/
+  #  expose:
+  #    - 3000
+  #    - 3306
+  #  network_mode: host
+  web:
+    build: ./system/web/
+    expose:
+      - 80
+      - 3306
+    volumes:
+      - ./system/web/html:/var/www/html
+    network_mode: host
+  cron:
+    build: ./system/cron/
+    network_mode: host
+  mysql:
+    image: mysql:5.7
+    vloumes:
+      - mysql:/var/lib/mysql
+    enviroment:
+      TZ: 'Asia/Shanghai'
+      MYSQL_ROOT_PASSWORD: roota
+    command: ['mysqld', '--character-set-server=utf8']
+    network_mode: host
