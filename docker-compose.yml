@@ -19,7 +19,7 @@ services:
     network_mode: host
   mysql:
     image: mysql:5.7
-    vloumes:
+    volumes:
       - mysql:/var/lib/mysql
     enviroment:
       TZ: 'Asia/Shanghai'
