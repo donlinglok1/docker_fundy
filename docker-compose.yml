@@ -21,7 +21,7 @@ services:
     image: mysql:5.7
     volumes:
       - mysql:/var/lib/mysql
-    enviroment:
+    environment:
       TZ: 'Asia/Shanghai'
       MYSQL_ROOT_PASSWORD: roota
     command: ['mysqld', '--character-set-server=utf8']
