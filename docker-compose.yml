@@ -1,39 +1,23 @@
 version: "2"
 services:
-  #api:
-  #  build: ./system/api/
-  #  expose:
-  #    - 3000
-  #    - 3306
-  #  network_mode: host
-  web:
-    build: ./system/web/
-    expose:
-      - 80
-      - 3306
-    volumes:
-      - ./system/web/html:/var/www/html
-    network_mode: host
-  cron:
-    build: ./system/cron/
-    network_mode: host
   mysql:
-    image: mysql:8
-    volumes:
-      - ./system/mysql:/var/lib/mysql
-    environment:
-      TZ: 'Asia/Shanghai'
-      MYSQL_ROOT_PASSWORD: rootpass
-    command: ['mysqld', '--character-set-server=utf8']
-    network_mode: host
-
-  cadvisor:
-    image: google/cadvisor:latest
+    image: "mysql:5.7"
     ports:
-      - "7070:8080"
+      - "3307:3306"
     volumes:
-      - /:/rootfs:ro 
-      - /var/run:/var/run:rw 
-      - /sys:/sys:ro 
-      - /var/lib/docker/:/var/lib/docker:ro 
-    
+      - "./mysql:/var/lib/mysql"
+    environment:
+      - "TZ=Asia/Shanghai"
+      - "MYSQL_ROOT_PASSWORD=rootab"
+      
+  web:
+    build: "./web/"
+    ports:
+      - "90:80"
+    volumes:
+      - "./web/html:/var/www/html"
+      
+  cron:
+    build: ./cron/
+    volumes:
+      - "./:/project"

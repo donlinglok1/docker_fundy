@@ -2,9 +2,9 @@
 date_default_timezone_set('UTC');
 $_YMD = date ( 'Y-m-d' );
 
-$_MYSQLHOST = 'fundydb.alllwork.com';
-$_MYSQLUSER = 'fundy';
-$_MYSQLPW = 'a254984517tu';
+$_MYSQLHOST = 'db.alllwork.com:3307';
+$_MYSQLUSER = 'root';
+$_MYSQLPW = 'roota';
 $_MYSQLCONNECTION = mysql_connect ( $_MYSQLHOST, $_MYSQLUSER, $_MYSQLPW );
 
 if (! $_MYSQLCONNECTION) {
