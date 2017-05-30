@@ -2,7 +2,7 @@
 date_default_timezone_set('UTC');
 $_YMD = date ( 'Y-m-d' );
 
-$_MYSQLHOST = 'db.alllwork.com:3307';
+$_MYSQLHOST = 'alllwork.com:3307';
 $_MYSQLUSER = 'root';
 $_MYSQLPW = 'roota';
 $_MYSQLCONNECTION = mysql_connect ( $_MYSQLHOST, $_MYSQLUSER, $_MYSQLPW );
@@ -19,7 +19,7 @@ function sql_select_obj($query) {
 	while ( $r = mysql_fetch_assoc ( $q ) ) {
 		$result = $r;
 	}
-	
+
 	return $result;
 }
 function sql_select_array($query) {
@@ -28,7 +28,7 @@ function sql_select_array($query) {
 	while ( $r = mysql_fetch_assoc ( $q ) ) {
 		$result [] = $r;
 	}
-	
+
 	return $result;
 }
 function sql_insert_id($query) {

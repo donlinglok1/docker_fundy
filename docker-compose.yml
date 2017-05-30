@@ -5,10 +5,15 @@ services:
     ports:
       - "3307:3306"
     volumes:
-      - "./mysql:/var/lib/mysql"
+      - "./mysql-data:/var/lib/mysql"
+      
+      #- "./mysql/gold.sql:/docker-entrypoint-initdb.d/gold.sql"
+      #- "./mysql/currency.sql:/docker-entrypoint-initdb.d/currency.sql"
+      #- "./mysql/mpf.sql:/docker-entrypoint-initdb.d/mpf.sql"
+      #- "./mysql/cronit.sql:/docker-entrypoint-initdb.d/cronit.sql" 
     environment:
       - "TZ=Asia/Shanghai"
-      - "MYSQL_ROOT_PASSWORD=rootab"
+      - "MYSQL_ROOT_PASSWORD=roota"
       
   web:
     build: "./web/"

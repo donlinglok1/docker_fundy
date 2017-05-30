@@ -1,13 +1,13 @@
-* * * * * sleep 0; /usr/bin/curl http://localhost/cronit/index.php > /tmp/excel_ftp_output
-* * * * * sleep 5; /usr/bin/curl http://localhost/cronit/index.php > /tmp/excel_ftp_output
-* * * * * sleep 10; /usr/bin/curl http://localhost/cronit/index.php > /tmp/excel_ftp_output
-* * * * * sleep 15; /usr/bin/curl http://localhost/cronit/index.php > /tmp/excel_ftp_output
-* * * * * sleep 20; /usr/bin/curl http://localhost/cronit/index.php > /tmp/excel_ftp_output
-* * * * * sleep 25; /usr/bin/curl http://localhost/cronit/index.php > /tmp/excel_ftp_output
-* * * * * sleep 30; /usr/bin/curl http://localhost/cronit/index.php > /tmp/excel_ftp_output
-* * * * * sleep 35; /usr/bin/curl http://localhost/cronit/index.php > /tmp/excel_ftp_output
-* * * * * sleep 40; /usr/bin/curl http://localhost/cronit/index.php > /tmp/excel_ftp_output
-* * * * * sleep 45; /usr/bin/curl http://localhost/cronit/index.php > /tmp/excel_ftp_output
-* * * * * sleep 50; /usr/bin/curl http://localhost/cronit/index.php > /tmp/excel_ftp_output
-* * * * * sleep 55; /usr/bin/curl http://localhost/cronit/index.php > /tmp/excel_ftp_output
+* * * * * sleep 0; /usr/bin/curl http://alllwork.com:90/cronit/index.php > /tmp/excel_ftp_output
+* * * * * sleep 5; /usr/bin/curl http://alllwork.com:90/cronit/index.php > /tmp/excel_ftp_output
+* * * * * sleep 10; /usr/bin/curl http://alllwork.com:90/cronit/index.php > /tmp/excel_ftp_output
+* * * * * sleep 15; /usr/bin/curl http://alllwork.com:90/cronit/index.php > /tmp/excel_ftp_output
+* * * * * sleep 20; /usr/bin/curl http://alllwork.com:90/cronit/index.php > /tmp/excel_ftp_output
+* * * * * sleep 25; /usr/bin/curl http://alllwork.com:90/cronit/index.php > /tmp/excel_ftp_output
+* * * * * sleep 30; /usr/bin/curl http://alllwork.com:90/cronit/index.php > /tmp/excel_ftp_output
+* * * * * sleep 35; /usr/bin/curl http://alllwork.com:90/cronit/index.php > /tmp/excel_ftp_output
+* * * * * sleep 40; /usr/bin/curl http://alllwork.com:90/cronit/index.php > /tmp/excel_ftp_output
+* * * * * sleep 45; /usr/bin/curl http://alllwork.com:90/cronit/index.php > /tmp/excel_ftp_output
+* * * * * sleep 50; /usr/bin/curl http://alllwork.com:90/cronit/index.php > /tmp/excel_ftp_output
+* * * * * sleep 55; /usr/bin/curl http://alllwork.com:90/cronit/index.php > /tmp/excel_ftp_output
 
